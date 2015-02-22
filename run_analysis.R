@@ -33,7 +33,9 @@ run_analysis <- function() {
   
   # Extracting the measurements on the mean and standard deviation for each measurement 
   
-  meanAndStdColumns<-c("Activity.Type", "Subject", grep("-mean()-",t(features[,2]), fixed=TRUE, value=TRUE), grep("-std()-",t(features[,2]), fixed=TRUE, value=TRUE))
+  listOfFeatures <- t(features[1:265,2])
+  
+  meanAndStdColumns<-c("Activity.Type", "Subject", grep("-mean()-",listOfFeatures, fixed=TRUE, value=TRUE), grep("-std()-",listOfFeatures, fixed=TRUE, value=TRUE))
   
   meanAndStdColOfDataSet<-combinedDataSet[,meanAndStdColumns]
   
